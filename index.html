@@ -226,6 +226,77 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <script src="script.js"></script>
+	  <style>
+  .cart-overlay {
+    position: fixed;
+    top: 70px;
+    right: -350px;
+    width: 300px;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .cart-overlay.show {
+    right: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+</style>
+
+<div class="cart-overlay">
+  <div class="cart">
+    <div class="cart-items">
+      <div class="cart-item">
+        <img src="images/watermelon.png" />
+        <div>
+          <strong>Watermelon</strong><br>
+          ₹49.9/KG - Qty:1
+        </div>
+        <i class="fas fa-trash"></i>
+      </div>
+      <div class="cart-item">
+        <img src="images/onion.png" />
+        <div>
+          <strong>Onion</strong><br>
+          ₹50.00/KG - Qty:1
+        </div>
+        <i class="fas fa-trash"></i>
+      </div>
+      <div class="cart-item">
+        <img src="images/chicken.png" />
+        <div>
+          <strong>Chicken</strong><br>
+          ₹30.00/KG - Qty:1
+        </div>
+        <i class="fas fa-trash"></i>
+      </div>
+    </div>
+    <p><strong>Total: ₹129.69/-</strong></p>
+    <button>Check Out</button>
+  </div>
+</div>
+
+<script>
+  const cartBtn = document.querySelector("#cart-btn");
+  const cartOverlay = document.querySelector(".cart-overlay");
+
+  cartBtn.addEventListener("click", () => {
+    cartOverlay.classList.toggle("show");
+  });
+</script>
   </body>
 </html>
 
