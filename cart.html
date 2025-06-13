@@ -2,10 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Cart</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      background: #007bff;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background: #0056b3;
+    }
+
+    ul#cart-items {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    ul#cart-items li {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>Your Cart</h1>
