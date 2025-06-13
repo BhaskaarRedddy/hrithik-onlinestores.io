@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <a href="index.html">← Back to Store</a>
+  </header>
+
+  <main>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: ₹<span id="total">0</span></strong></p>
+
+    <h2>Checkout</h2>
+    <form action="https://formspree.io/f/movwdbpo" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <input type="text" name="phone" placeholder="Phone number" required />
+      <textarea name="address" placeholder="Shipping address" required></textarea>
+
+      <!-- Hidden field to carry order details -->
+      <textarea name="order" id="order" readonly hidden></textarea>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </main>
+
+  <script>
+    const items = JSON.parse(localStorage.getItem("cart") || "[]");
+    const list = document.getElementById("cart-items");
+    const order = document.getElementById("order");
+    let total = 0;
+    let summary = "";
+
+    items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - ₹${item.price}`;
+      list.appendChild(li);
+      total += item.price;
+      summary += `${item.name} - ₹${item.price}\n`;
+    });
+
+    document.getElementById("total").textContent = total;
+    summary += `\nTotal: ₹${total}`;
+    order.value = summary;
+  </script>
+</body>
+</html>
